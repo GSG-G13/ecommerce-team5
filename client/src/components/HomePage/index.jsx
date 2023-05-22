@@ -3,7 +3,7 @@ import { Outlet } from 'react-router-dom';
 import Footer from '../Footer';
 import Navbar from '../Navbar';
 
-const NavbarWithFooter = () => (
+const HomePage = () => (
   <>
     <Navbar />
     <Outlet />
@@ -11,4 +11,4 @@ const NavbarWithFooter = () => (
   </>
 );
 
-export default NavbarWithFooter;
+export default HomePage;
