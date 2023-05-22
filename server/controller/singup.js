@@ -1,5 +1,4 @@
 
 
 const signUpHandler = (req, res) => {
-    
 }
