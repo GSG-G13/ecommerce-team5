@@ -1,17 +1,18 @@
-import {
-  createBrowserRouter,
-} from 'react-router-dom';
+import { createBrowserRouter } from 'react-router-dom';
 
-import NavbarWithFooter from '../components/HeaderWithFooter';
+import HomePage from '../components/HomePage';
+import HomeContent from '../components/HomeContent';
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <NavbarWithFooter />,
-  },
-  {
-    path: '/*',
-    element: <h2>Error</h2>,
+    element: <HomePage />,
+    children: [
+      {
+        path: '/',
+        element: <HomeContent />,
+      },
+    ],
   },
 ]);
 
