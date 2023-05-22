@@ -8,6 +8,7 @@ import * as dotenv from 'dotenv';
 dotenv.config();
 
 const app = express();
+import router from './router/index.js';
 
 app.set('port', process.env.PORT || 8080);
 app.disable('x-powered-by');
@@ -20,5 +21,7 @@ app.use([
   compression(),
   cookieParser(),
 ]);
+
+app.use(router);
 
 export default app;
