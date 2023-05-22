@@ -1,27 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@300&family=Work+Sans:wght@300&display=swap');
 
 body {
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    display: flex;
-    justify-content: center;
-    background-image: url('../../../public/images/shopping.svg');
-    background-repeat: no-repeat;
-    background-position: right;
-    /* Additional styling */
-    background-size: 800px; /* Adjusts the background image to cover the entire element */
-    background-color: #f5f5f5; /* Sets a background color in case the image is transparent or not fully visible */
-  
-    
 }
+#singupelement{
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  justify-content: center;
+  background-image: url('../../../public/images/shopping.svg');
+  background-repeat: no-repeat;
+  background-position: right;
+  background-size: 800px; 
+  background-color: #f5f5f5;  
 
-/* 
-#090446
-#28235D
-#090446
-#6C63FF
-
-
-*/
+}
 
 .signupform{
     display: flex;
