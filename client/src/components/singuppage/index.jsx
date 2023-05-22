@@ -20,6 +20,8 @@ const Singup = () => {
   };
 
   return (
+    <div id='singupelement'>
+
     <form className='signupform'>
         <div id='description'>
             <h3 id='singupword' >Rgister Yourserlf</h3>
@@ -41,6 +43,7 @@ const Singup = () => {
 
 
     </form>
+    </div>
   );
 };
 
