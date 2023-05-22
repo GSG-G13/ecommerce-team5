@@ -1,14 +1,19 @@
-import {
-  createBrowserRouter,
-} from 'react-router-dom';
+import { createBrowserRouter } from 'react-router-dom';
 
-import NavbarWithFooter from '../components/HeaderWithFooter';
 import Singup from '../components/singuppage/index';
+import HomePage from '../components/HomePage';
+import HomeContent from '../components/HomeContent';
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <Singup />,
+    element: <HomePage />,
+    children: [
+      {
+        path: '/',
+        element: <HomeContent />,
+      },
+    ],
   },
   {
     path: '/signup',
@@ -16,8 +21,8 @@ const router = createBrowserRouter([
   }, 
   {
     path: '/*',
-    element: <h2>Error</h2>,
-  },
+    element: <h2>Error</h2>
+  }
 ]);
 
 export default router;
