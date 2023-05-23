@@ -74,7 +74,7 @@ const HomeContent = () => {
           <CategoryFilter
             categories={categories}
             selectedCategory={selectedCategory}
-            onChange={handleCategoryChange}
+            handleCategoryChange={handleCategoryChange}
           />
         </div>
         <hr />
