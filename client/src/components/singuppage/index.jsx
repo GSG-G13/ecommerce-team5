@@ -14,10 +14,18 @@ const Singup = () => {
   const [submit, setSubmit] = useState(false);
   const [agree, setAgree] = useState(false);
 
+  let valid = 0;
   // manipualte use states
 
-  const handleAgree = (newagree) => {
-    setAgree(!newagree);
+  const handleAgree = () => {
+    if (!agree) {
+      setAgree(true);
+      valid += 1;
+    } else {
+      setAgree(false);
+      valid -= 1;
+    }
+    console.log(valid, agree);
   };
 
   const handleFirstNameChange = (event) => {
@@ -39,6 +47,10 @@ const Singup = () => {
     setConfirmPassword(event.target.value);
   };
 
+  const handleSubmit = () => {
+    setSubmit(!submit);
+  };
+
   // other functions
 
   // eslint-disable-next-line consistent-return
@@ -49,6 +61,7 @@ const Singup = () => {
         email.includes('.com') &&
         !email.includes(' ')
       ) {
+        valid += 1;
         return 'Email is valid';
       }
       return 'Email is not valid!';
@@ -57,7 +70,10 @@ const Singup = () => {
 
   const validateImage = () => {
     if (img !== '') {
-      if (img.includes(' ')) {
+      if (!img.includes(' ')) {
+        valid += 1;
+        console.log(valid);
+      } else {
         return "Image URL shoudn't contain spaces!";
       }
     }
@@ -66,6 +82,7 @@ const Singup = () => {
   const validtaConfirm = () => {
     if (confirmPassword !== '') {
       if (password === confirmPassword) {
+        valid += 1;
         return 'passwords match';
       }
       return "passwords don't match";
@@ -74,10 +91,11 @@ const Singup = () => {
 
   const validateFirstName = () => {
     if (firstName !== '') {
-      if (firstName.length < 5 || firstName.length > 10) {
+      if (!firstName.includes(' ') && firstName.length >= 5 && firstName.length <= 10) {
+        valid += 1;
+      } else if (firstName.length < 5 || firstName.length > 10) {
         return 'First name should be between 5-10 characters';
-      }
-      if (firstName.includes(' ')) {
+      } else {
         return "First Name shoudn'nt contain spaces";
       }
     }
@@ -85,10 +103,11 @@ const Singup = () => {
 
   const validateLasttName = () => {
     if (lastName !== '') {
-      if (lastName.length < 5 || lastName.length > 10) {
+      if (!lastName.includes(' ') && lastName.length >= 5 && lastName.length <= 10) {
+        valid += 1;
+      } else if (lastName.length < 5 || lastName.length > 10) {
         return 'First name should be between 5-10 characters';
-      }
-      if (lastName.includes(' ')) {
+      } else {
         return "First Name shoudn'nt contain spaces";
       }
     }
@@ -160,7 +179,9 @@ const Singup = () => {
         }
       }
 
-      if (!capital || !small || !sybmbol || !number) {
+      if (capital + small + sybmbol + number === 4) {
+        valid += 1;
+      } else {
         return 'password should contain capital letter, samll letter, numbers, ans symbols';
       }
     }
@@ -216,12 +237,12 @@ const Singup = () => {
             onChange={handleImgChange}
           />
           <p>{validateImage()}</p>
-          <button type="button" id="singupsubmit">
+          <button type="button" id="singupsubmit" value={submit} onClick={handleSubmit}>
             Continue
           </button>
         </div>
         <div id="termsofuse">
-          <input type="checkbox" id="checkbox" />
+          <input type="checkbox" id="checkbox" value={agree} onChange={handleAgree} />
           <span>I agree to the terms of use</span>
         </div>
         <div id="aleadyhaveaccount">
