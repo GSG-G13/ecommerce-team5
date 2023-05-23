@@ -9,21 +9,23 @@ const CategoryFilter = ({ selectedCategory, handleCategoryChange }) => {
   return (
     <div>
       <h3 className="filter-title">Filter by Category:</h3>
-      {categories.map((category) => (
-        <div className="filter-box" key={category.id}>
-          <input
-            type="radio"
-            id={category.id}
-            name="category"
-            value={category.id}
-            checked={selectedCategory === category.id}
-            onChange={handleCategoryChange}
-          />
-          <label className="filter-name" htmlFor={category.id}>
-            {category.name}
-          </label>
-        </div>
-      ))}
+      <div className="filterss">
+        {categories.map((category) => (
+          <div className="filter-box" key={category.id}>
+            <input
+              type="radio"
+              id={category.id}
+              name="category"
+              value={category.id}
+              checked={selectedCategory === category.id}
+              onChange={handleCategoryChange}
+            />
+            <label className="filter-name" htmlFor={category.id}>
+              {category.name}
+            </label>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
