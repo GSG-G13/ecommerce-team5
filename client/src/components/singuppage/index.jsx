@@ -1,3 +1,6 @@
+/* eslint-disable consistent-return */
+/* eslint-disable operator-linebreak */
+/* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from 'react';
 
 // define use states
@@ -38,9 +41,14 @@ const Singup = () => {
 
   // other functions
 
+  // eslint-disable-next-line consistent-return
   const validateEmail = () => {
     if (email !== '') {
-      if (email.includes('@') && email.includes('.com') && !email.includes(' ')) {
+      if (
+        email.includes('@') &&
+        email.includes('.com') &&
+        !email.includes(' ')
+      ) {
         return 'Email is valid';
       }
       return 'Email is not valid!';
@@ -50,17 +58,17 @@ const Singup = () => {
   const validateImage = () => {
     if (img !== '') {
       if (img.includes(' ')) {
-        return 'Image URL shoudn\'t contain spaces!';
+        return "Image URL shoudn't contain spaces!";
       }
     }
   };
 
   const validtaConfirm = () => {
-    if (confirmPassword != '') {
+    if (confirmPassword !== '') {
       if (password === confirmPassword) {
         return 'passwords match';
       }
-      return 'passwords don\'t match';
+      return "passwords don't match";
     }
   };
 
@@ -68,8 +76,9 @@ const Singup = () => {
     if (firstName !== '') {
       if (firstName.length < 5 || firstName.length > 10) {
         return 'First name should be between 5-10 characters';
-      } if (firstName.includes(' ')) {
-        return 'First Name shoudn\'nt contain spaces';
+      }
+      if (firstName.includes(' ')) {
+        return "First Name shoudn'nt contain spaces";
       }
     }
   };
@@ -78,8 +87,9 @@ const Singup = () => {
     if (lastName !== '') {
       if (lastName.length < 5 || lastName.length > 10) {
         return 'First name should be between 5-10 characters';
-      } if (lastName.includes(' ')) {
-        return 'First Name shoudn\'nt contain spaces';
+      }
+      if (lastName.includes(' ')) {
+        return "First Name shoudn'nt contain spaces";
       }
     }
   };
@@ -88,7 +98,8 @@ const Singup = () => {
     if (password !== '') {
       if (password.includes(' ')) {
         return "Password can't contain spaces";
-      } if (password.length < 8 || password.length > 32) {
+      }
+      if (password.length < 8 || password.length > 32) {
         return 'Password should be between 8-32 characters!';
       }
       let capital = 0;
@@ -97,11 +108,41 @@ const Singup = () => {
       let number = 0;
       const passArr = password.split('');
       const specialChars = [
-        '`', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '+',
-        '-', '=', '[', ']', '{', '}', ';', '\'', ':', '"', '\\', '|', ',',
-        '.', '<', '>', '/', '?', '~',
+        '`',
+        '!',
+        '@',
+        '#',
+        '$',
+        '%',
+        '^',
+        '&',
+        '*',
+        '(',
+        ')',
+        '_',
+        '+',
+        '-',
+        '=',
+        '[',
+        ']',
+        '{',
+        '}',
+        ';',
+        "'",
+        ':',
+        '"',
+        '\\',
+        '|',
+        ',',
+        '.',
+        '<',
+        '>',
+        '/',
+        '?',
+        '~',
       ];
 
+      // eslint-disable-next-line no-plusplus
       for (let i = 0; i < passArr.length; i++) {
         if (passArr[i].match(/[a-z]/i)) {
           if (passArr[i] === passArr[i].toUpperCase()) {
@@ -113,6 +154,7 @@ const Singup = () => {
         if (specialChars.includes(passArr[i])) {
           sybmbol = 1;
         }
+        // eslint-disable-next-line no-restricted-globals
         if (!isNaN(passArr[i])) {
           number = 1;
         }
@@ -126,38 +168,66 @@ const Singup = () => {
 
   return (
     <div id="singupelement">
-
       <form className="signupform">
         <div id="description">
           <h3 id="singupword">Rgister Yourserlf</h3>
           <p id="maddow">Begin You jerney with us today</p>
         </div>
         <div id="emailandpassword">
-
-          <input placeholder="  Email" id="singupemail" value={email} onChange={handleEmailChange} />
+          <input
+            placeholder="  Email"
+            id="singupemail"
+            value={email}
+            onChange={handleEmailChange}
+          />
           <p className="massage">{null || validateEmail()}</p>
-          <input placeholder="  First Name" id="singupusername" value={firstName} onChange={handleFirstNameChange} />
+          <input
+            placeholder="  First Name"
+            id="singupusername"
+            value={firstName}
+            onChange={handleFirstNameChange}
+          />
           <p className="massage">{validateFirstName()}</p>
-          <input placeholder="  Last Name" id="singupusername" value={lastName} onChange={handleSecondNameChange} />
+          <input
+            placeholder="  Last Name"
+            id="singupusername"
+            value={lastName}
+            onChange={handleSecondNameChange}
+          />
           <p className="massage">{validateLasttName()}</p>
-          <input placeholder="  Password" id="singuppassword" value={password} onChange={handlePasswordChange} />
+          <input
+            placeholder="  Password"
+            id="singuppassword"
+            value={password}
+            onChange={handlePasswordChange}
+          />
           <p className="massage">{null || validataPassword()}</p>
-          <input placeholder="  Confirm Password" id="singupconfirmpassword" value={confirmPassword} onChange={handleConfirmPasswordChange} />
+          <input
+            placeholder="  Confirm Password"
+            id="singupconfirmpassword"
+            value={confirmPassword}
+            onChange={handleConfirmPasswordChange}
+          />
           <p>{validtaConfirm()}</p>
-          <input placeholder="  You Image URL" value={img} id="singupuserimage" onChange={handleImgChange} />
+          <input
+            placeholder="  You Image URL"
+            value={img}
+            id="singupuserimage"
+            onChange={handleImgChange}
+          />
           <p>{validateImage()}</p>
-          <button id="singupsubmit" onClick={() => han}>Continue</button>
+          <button type="button" id="singupsubmit">
+            Continue
+          </button>
         </div>
         <div id="termsofuse">
-          {' '}
           <input type="checkbox" id="checkbox" />
-          I agree to the terms  of use
+          <span>I agree to the terms of use</span>
         </div>
         <div id="aleadyhaveaccount">
           Already signed up?
-          <a href="/login">  Log In</a>
+          <a href="/login"> Log In</a>
         </div>
-
       </form>
     </div>
   );
