@@ -1,6 +1,7 @@
 import { createBrowserRouter } from 'react-router-dom';
 
 import Singup from '../components/singuppage/index';
+import Login from '../components/loginpage';
 import HomePage from '../components/HomePage';
 import HomeContent from '../components/HomeContent';
 import ProductPage from '../components/ProductPage';
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
   {
     path: '/signup',
     element: <Singup />,
+  },
+  {
+    path: '/login',
+    element: <Login />,
   },
   {
     path: '/*',

@@ -2,8 +2,9 @@ import express from 'express';
 
 const router = express.Router();
 
-router.get('/login', (req, res) => {
-    res.send("test login router from router folder")
+router.post('/login', (req, res) => {
+    console.log(req.body, 'reqnew');
+    res.send({responseRecienve: 'truee'})
 })
 
 
