@@ -11,21 +11,15 @@ const Singup = () => {
   const [img, setImg] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
-  const [submit, setSubmit] = useState(false);
+  const [submit, setSubmit] = useState(0);
   const [agree, setAgree] = useState(false);
+  const [signupMassage, setsignupMassage] = useState(null);
 
   let valid = 0;
   // manipualte use states
 
   const handleAgree = () => {
-    if (!agree) {
-      setAgree(true);
-      valid += 1;
-    } else {
-      setAgree(false);
-      valid -= 1;
-    }
-    console.log(valid, agree);
+    setAgree(!agree);
   };
 
   const handleFirstNameChange = (event) => {
@@ -48,7 +42,7 @@ const Singup = () => {
   };
 
   const handleSubmit = () => {
-    setSubmit(!submit);
+    setSubmit(submit + 1);
   };
 
   // other functions
@@ -72,7 +66,6 @@ const Singup = () => {
     if (img !== '') {
       if (!img.includes(' ')) {
         valid += 1;
-        console.log(valid);
       } else {
         return "Image URL shoudn't contain spaces!";
       }
@@ -186,6 +179,33 @@ const Singup = () => {
       }
     }
   };
+  useEffect(() => {
+    if (valid !== 6 && agree === true && submit > 0) {
+      setsignupMassage('please fill the above fields correctly');
+    } else if (valid === 6 && agree === false && submit > 0) {
+      setsignupMassage('please agree to the terms of use');
+    } else if (valid !== 6 && agree === false && submit > 0) {
+      setsignupMassage('please agree to the terms of use and fill all the fields correctly');
+    } else if (submit === 0) {
+      setsignupMassage(null);
+    } else {
+      setsignupMassage('singup successfuly! you will redirected to the landing page!');
+      fetch('/signupform', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          userEmail: email,
+          userFirstName: firstName,
+          userLastName: lastName,
+          userPassword: password,
+          userConfirmPassword: confirmPassword,
+          userImage: img,
+        }),
+      });
+    }
+  }, [submit]);
 
   return (
     <div id="singupelement">
@@ -237,9 +257,10 @@ const Singup = () => {
             onChange={handleImgChange}
           />
           <p>{validateImage()}</p>
-          <button type="button" id="singupsubmit" value={submit} onClick={handleSubmit}>
+          <button type="button" id="singupsubmit" onClick={handleSubmit}>
             Continue
           </button>
+          <p className="massage">{signupMassage}</p>
         </div>
         <div id="termsofuse">
           <input type="checkbox" id="checkbox" value={agree} onChange={handleAgree} />

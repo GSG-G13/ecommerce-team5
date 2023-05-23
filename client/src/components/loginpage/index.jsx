@@ -18,7 +18,6 @@ const Login = () => {
   };
 
   useEffect(() => {
-    console.log(email, password, submit);
     fetch('/login', {
       method: 'POST',
       headers: {
@@ -28,7 +27,7 @@ const Login = () => {
         userEmail: email,
         userPassword: password,
       }),
-    }).then((res) => res.json()).then((res) => console.log(res)).catch((err) => console.log(err));
+    }).then((res) => res.json()).catch((err) => console.log(err));
   }, [submit]);
 
   return (

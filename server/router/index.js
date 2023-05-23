@@ -7,6 +7,10 @@ router.post('/login', (req, res) => {
     res.send({responseRecienve: 'truee'})
 })
 
+router.post('/signupform', (req, res) => {
+    console.log(req.body);
+    res.send('singup test success')
+})
 
 
 
