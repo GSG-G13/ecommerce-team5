@@ -1,52 +1,72 @@
-import useState from "react";
+import { useState, useEffect } from 'react';
 
 const Login = () => {
- 
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [submit, setSubmit] = useState(false);
 
+  const handleEmailChange = (event) => {
+    setEmail(event.target.value);
+  };
 
+  const handlePasswordChange = (event) => {
+    setPassword(event.target.value);
+  };
 
+  const handleSubmitChange = () => {
+    setSubmit(true);
+  };
 
+  useEffect(() => {
+    console.log(email, password, submit);
+    fetch('/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        userEmail: email,
+        userPassword: password,
+      }),
+    }).then((res) => res.json()).then((res) => console.log(res)).catch((err) => console.log(err));
+  }, [submit]);
 
-return (
-  <div id="singupelement">
-  <form className="signupform">
-    <div id="description">
-      <h3 id="singupword">Rgister Yourserlf</h3>
-      <p id="maddow">Begin You jerney with us today</p>
+  return (
+    <div id="singupelement">
+      <form className="signupform">
+        <div id="description">
+          <h3 id="singupword">Rgister Yourserlf</h3>
+          <p id="maddow">Begin You jerney with us today</p>
+        </div>
+        <div id="emailandpassword">
+          <input
+            placeholder="  Email"
+            value={email}
+            onChange={handleEmailChange}
+            id="singupemail"
+          />
+
+          <input
+            placeholder="Password"
+            value={password}
+            onChange={handlePasswordChange}
+            id="singuppassword"
+
+          />
+          <p className="massage"> </p>
+
+          <button type="button" value={submit} onClick={handleSubmitChange} id="singupsubmit">
+            Continue
+          </button>
+        </div>
+
+        <div id="aleadyhaveaccount">
+          You dont have an account?
+          <a href="/signup">Sign up</a>
+        </div>
+      </form>
     </div>
-    <div id="emailandpassword">
-      <input
-        placeholder="  Email"
-        id="singupemail"
- 
-      />
-      <p className="massage"></p>
-           
-      <input
-        placeholder="  Password"
-        id="singuppassword"
-       
-      />
-      <p className="massage"></p>
-      
-      
-      <button type="button" id="singupsubmit">
-        Continue
-      </button>
-    </div>
-    <div id="termsofuse">
-      <input type="checkbox" id="checkbox" />
-      <span>I agree to the terms of use</span>
-    </div>
-    <div id="aleadyhaveaccount">
-      Already signed up?
-      <a href="/login"> Log In</a>
-    </div>
-  </form>
-</div>
 
-
-
-)
-}
+  );
+};
 export default Login;
