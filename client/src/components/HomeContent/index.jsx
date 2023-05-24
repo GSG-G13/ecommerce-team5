@@ -1,6 +1,7 @@
 /* eslint-disable no-console */
 /* eslint-disable no-unused-vars */
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Product from './Product';
 import CategoryFilter from '../CategoryFilter';
 
@@ -31,7 +32,7 @@ const HomeContent = () => {
       console.error('Error fetching filtered products:', error);
     }
   };
-
+  const navigateLink = useNavigate();
   return (
     <>
       <div className="Header">
@@ -45,7 +46,7 @@ const HomeContent = () => {
               voluptatum, voluptate, quibusdam, quia voluptas quod quos
               exercitationem voluptatibus quae quidem dolorum.
             </p>
-            <button className="Header__container__left__button" type="button">
+            <button className="Header__container__left__button" type="button" onClick={() => navigateLink('/login')}>
               Shop Now
             </button>
           </div>
