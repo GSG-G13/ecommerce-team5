@@ -1,4 +1,6 @@
 import express from 'express';
+import {getProductsHandler} from '../controller/getproductshandler.js';
+import getCartHandler from '../controller/getcarthandler.js';
 
 const router = express.Router();
 
@@ -12,7 +14,12 @@ router.post('/signupform', (req, res) => {
     res.send('singup test success')
 })
 
+router.get('/products', getProductsHandler);
 
-
+router.get('/cart', getCartHandler)
 
 export default router;
+
+
+
+
