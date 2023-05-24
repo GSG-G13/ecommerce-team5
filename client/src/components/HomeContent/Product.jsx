@@ -1,4 +1,4 @@
-const Product = () => (
+const Product = ({ name }) => (
   <div className="product">
     <div className="product-image">
       <img
@@ -7,7 +7,7 @@ const Product = () => (
       />
     </div>
     <div className="product-info">
-      <h4>Product Name</h4>
+      <h4>{name}</h4>
       <p className="disc">Product Description</p>
       <span>category</span>
       <p className="price">40$</p>
