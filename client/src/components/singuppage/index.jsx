@@ -209,7 +209,7 @@ const Singup = () => {
 
   return (
     <div id="singupelement">
-      <form className="signupform">
+      <form  className="signupform">
         <div id="description">
           <h3 id="singupword">Rgister Yourserlf</h3>
           <p id="maddow">Begin You jerney with us today</p>
