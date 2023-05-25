@@ -2,7 +2,7 @@ import pg from 'pg';
 import dotenv from 'dotenv';
 dotenv.config();
 
-const {Pool} = pg;
+const { Pool } = pg;
 
 let databaseUrl = `${process.env.DB_URL}`;
 

@@ -1,7 +1,7 @@
-import {getProductsQuery} from "../database/queries/getproductsquery.js";
+import { getProductsQuery } from '../database/queries/products/getProductsQuery.js';
 
 const getProductsHandler = (req, res) => {
-  getProductsQuery().then(data => res.send(data.rows));
+  getProductsQuery().then((data) => res.send(data.rows));
 };
 
-export {getProductsHandler};
+export default { getProductsHandler };
