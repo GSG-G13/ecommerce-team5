@@ -134,7 +134,7 @@ const HomeContent = () => {
           />
           <div className="products-container">
             {products.map((product) => (
-              <Product name={product.name} />
+              <Product key={product.id} product={product} />
             ))}
           </div>
         </div>
