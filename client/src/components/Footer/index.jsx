@@ -7,8 +7,8 @@ const Footer = () => {
     <div className="footer">
       <div className="logo-img">Ecommerce</div>
       <div className="footer-links">
-        {ul.map(() => (
-          <ul className="ul-links">
+        {ul.map((val) => (
+          <ul className="ul-links" key={val}>
             <li>
               <a href="#">Find A Store</a>
             </li>

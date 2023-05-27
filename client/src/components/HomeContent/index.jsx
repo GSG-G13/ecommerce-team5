@@ -7,60 +7,29 @@ import Product from './Product';
 import CategoryFilter from '../CategoryFilter';
 
 const HomeContent = () => {
-  const [products, setProducts] = useState([
-    {
-      id: 1,
-      name: 'Nike Air Max 270',
-      category: 'shoes',
-      price: 150,
-      image: 'https://i.imgur.com/0kXv0YB.png',
-    },
-    {
-      id: 2,
-      name: 'Nike Air Max 270',
-      category: 'shoes',
-      price: 150,
-      image: 'https://i.imgur.com/0kXv0YB.png',
-    },
-    {
-      id: 3,
-      name: 'Nike Air Max 270',
-      category: 'shoes',
-      price: 150,
-      image: 'https://i.imgur.com/0kXv0YB.png',
-    },
-    {
-      id: 4,
-      name: 'Nike Air Max 270',
-      category: 'shoes',
-      price: 150,
-      image: 'https://i.imgur.com/0kXv0YB.png',
-    },
-    {
-      id: 5,
-      name: 'Nike Air Max 270',
-      category: 'shoes',
-      price: 150,
-      image: 'https://i.imgur.com/0kXv0YB.png',
-    },
-  ]);
+  const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
-  const [selectedCategory, setSelectedCategory] = useState('');
-  const [filteredProducts, setFilteredProducts] = useState([]);
+  // const [selectedCategory, setSelectedCategory] = useState('');
+  // const [filteredProducts, setFilteredProducts] = useState([]);
 
   useEffect(() => {
-    fetch('/api/categories')
+    fetch('/categories')
       .then((response) => response.json())
       .then((data) => setCategories(data))
       .catch((error) => console.error('Error fetching categories:', error));
   }, []);
 
   useEffect(() => {
-    fetch('/api/products')
+    fetch('/products')
       .then((response) => response.json())
-      .then((data) => setProducts(data))
+      .then((data) => {
+        setProducts(data);
+      })
       .catch((error) => console.error('Error fetching products:', error));
   }, []);
+
+  // here i will do filters handler that will execute when the user click on the category
+  // i will do the filter in the server side
 
   // useEffect(() => {
   //   document.querySelector('.search-input').addEventListener('keyup', (e) => {
@@ -77,21 +46,18 @@ const HomeContent = () => {
   //   });
   // }, []);
 
-  const handleCategoryChange = async (event) => {
-    const selectedCategoryId = event.target.value;
-    setSelectedCategory(selectedCategoryId);
+  // const handleCategoryChange = async (event) => {
+  //   const selectedCategoryId = event.target.value;
+  //   setSelectedCategory(selectedCategoryId);
 
-    try {
-      const response = await fetch(
-        `/api/products?category=${selectedCategoryId}`,
-      );
-      const data = await response.json();
-      setFilteredProducts(data);
-      console.log('Filtered products:', data);
-    } catch (error) {
-      console.error('Error fetching filtered products:', error);
-    }
-  };
+  //   try {
+  //     const response = await fetch(`/products?category=${selectedCategoryId}`);
+  //     const data = await response.json();
+  //     setFilteredProducts(data);
+  //   } catch (error) {
+  //     console.error('Error fetching filtered products:', error);
+  //   }
+  // };
   const navigateLink = useNavigate();
   return (
     <>
@@ -111,8 +77,9 @@ const HomeContent = () => {
           <h3>Filters</h3>
           <CategoryFilter
             categories={categories}
-            selectedCategory={selectedCategory}
-            handleCategoryChange={handleCategoryChange}
+            setProducts={setProducts}
+            // selectedCategory={selectedCategory}
+            // handleCategoryChange={handleCategoryChange}
           />
         </div>
         <hr />
