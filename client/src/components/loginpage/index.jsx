@@ -14,7 +14,7 @@ const Login = () => {
   };
 
   const handleSubmitChange = () => {
-    setSubmit(true);
+    setSubmit(!submit);
   };
 
   useEffect(() => {
@@ -54,7 +54,7 @@ const Login = () => {
           />
           <p className="massage"> </p>
 
-          <button type="button" value={submit} onClick={handleSubmitChange} id="singupsubmit">
+          <button type="button" onClick={handleSubmitChange} id="singupsubmit">
             Continue
           </button>
         </div>
