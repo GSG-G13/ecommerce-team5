@@ -11,4 +11,4 @@ const getCartController = async (req, res) => {
   }
 };
 
-export default { getCartController };
+export default getCartController;
