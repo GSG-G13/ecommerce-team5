@@ -1,6 +1,8 @@
 import express from 'express';
-import getProductsHandler from '../controller/getproductshandler.js';
-import cartRouter from './cart/index.js';
+import { getProductsHandler } from '../controller/getproductshandler.js';
+import getCartHandler from '../controller/getcarthandler.js';
+import getSingleProductController from '../controller/getSingleProductController.js';
+import getCategoriesController from '../controller/getCategoryController.js';
 
 const router = express.Router();
 
@@ -16,6 +18,12 @@ router.post('/signupform', (req, res) => {
 
 router.get('/products', getProductsHandler);
 
-router.get('/cart', cartRouter);
+router.get('/products/:id', getSingleProductController);
+
+router.get('/products?category=category', getProductsHandler);
+
+router.get('/cart', getCartHandler);
+
+router.get('/categories', getCategoriesController);
 
 export default router;

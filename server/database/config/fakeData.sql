@@ -1,5 +1,3 @@
-
-
 BEGIN;
 
 INSERT INTO users (first_name, last_name, email, phone, img_url, user_password)
@@ -22,29 +20,29 @@ VALUES
 
 INSERT INTO products (img_url, title, discription, price, cat_id)
 VALUES
-    ('https://example.com/product1.jpg', 'Product 1', 'Description of Product 1', '10.99', 1),
-    ('https://example.com/product2.jpg', 'Product 2', 'Description of Product 2', '19.99', 1),
-    ('https://example.com/product3.jpg', 'Product 3', 'Description of Product 3', '14.99', 2),
-    ('https://example.com/product4.jpg', 'Product 4', 'Description of Product 4', '9.99', 2),
-    ('https://example.com/product5.jpg', 'Product 5', 'Description of Product 5', '24.99', 3),
-    ('https://example.com/product6.jpg', 'Product 6', 'Description of Product 6', '12.99', 3),
-    ('https://example.com/product7.jpg', 'Product 7', 'Description of Product 7', '7.99', 4),
-    ('https://example.com/product8.jpg', 'Product 8', 'Description of Product 8', '16.99', 4),
-    ('https://example.com/product9.jpg', 'Product 9', 'Description of Product 9', '11.99', 5),
-    ('https://example.com/product10.jpg', 'Product 10', 'Description of Product 10', '8.99', 5);
+    ('https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/5e5c6b1e-1b7b-4b1a-8b0a-0b6b6b0b6b0b/air-max-270-mens-shoe-0KzJcG.jpg', 'Product 1', 'Description of Product 1', '10.99', 1),
+    ('https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/5e5c6b1e-1b7b-4b1a-8b0a-0b6b6b0b6b0b/air-max-270-mens-shoe-0KzJcG.jpg', 'Product 2', 'Description of Product 2', '19.99', 1),
+    ('https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/5e5c6b1e-1b7b-4b1a-8b0a-0b6b6b0b6b0b/air-max-270-mens-shoe-0KzJcG.jpg', 'Product 3', 'Description of Product 3', '14.99', 2),
+    ('https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/5e5c6b1e-1b7b-4b1a-8b0a-0b6b6b0b6b0b/air-max-270-mens-shoe-0KzJcG.jpg', 'Product 4', 'Description of Product 4', '9.99', 2),
+    ('https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/5e5c6b1e-1b7b-4b1a-8b0a-0b6b6b0b6b0b/air-max-270-mens-shoe-0KzJcG.jpg', 'Product 5', 'Description of Product 5', '24.99', 3),
+    ('https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/5e5c6b1e-1b7b-4b1a-8b0a-0b6b6b0b6b0b/air-max-270-mens-shoe-0KzJcG.jpg', 'Product 6', 'Description of Product 6', '12.99', 3),
+    ('https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/5e5c6b1e-1b7b-4b1a-8b0a-0b6b6b0b6b0b/air-max-270-mens-shoe-0KzJcG.jpg', 'Product 7', 'Description of Product 7', '7.99', 4),
+    ('https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/5e5c6b1e-1b7b-4b1a-8b0a-0b6b6b0b6b0b/air-max-270-mens-shoe-0KzJcG.jpg', 'Product 8', 'Description of Product 8', '16.99', 4),
+    ('https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/5e5c6b1e-1b7b-4b1a-8b0a-0b6b6b0b6b0b/air-max-270-mens-shoe-0KzJcG.jpg', 'Product 9', 'Description of Product 9', '11.99', 5),
+    ('https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/5e5c6b1e-1b7b-4b1a-8b0a-0b6b6b0b6b0b/air-max-270-mens-shoe-0KzJcG.jpg', 'Product 10', 'Description of Product 10', '8.99', 5);
 
 INSERT INTO cart (prod_id, user_id, count)
 VALUES
-    (31, 11, 2),
-    (32, 11, 1),
-    (33, 12, 3),
-    (34, 13, 1),
-    (35, 13, 2),
-    (36, 14, 1),
-    (37, 15, 2),
-    (38, 16, 3),
-    (39, 17, 1),
-    (40, 18, 2);
+    (1, 1, 2),
+    (2, 1, 1),
+    (3, 2, 3),
+    (4, 3, 1),
+    (5, 3, 2),
+    (6, 4, 1),
+    (7, 5, 2),
+    (8, 6, 3),
+    (9, 7, 1),
+    (10, 8, 2);
 
 
 
