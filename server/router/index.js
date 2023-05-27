@@ -1,8 +1,10 @@
 import express from 'express';
-import { getProductsHandler } from '../controller/getproductshandler.js';
-import getCartHandler from '../controller/getcarthandler.js';
-import getSingleProductController from '../controller/getSingleProductController.js';
-import getCategoriesController from '../controller/getCategoryController.js';
+// import { getProductsHandler } from '../controller/getproductshandler.js';
+// import getCartHandler from '../controller/getcarthandler.js';
+// import getSingleProductController from '../controller/getSingleProductController.js';
+// import getCategoriesController from '../controller/getCategoryController.js';
+import signUpHandler from '../controller/singup.js';
+import loginHandler from '../controller/login.js';
 
 const router = express.Router();
 
@@ -11,19 +13,19 @@ router.post('/login', (req, res) => {
   res.send({ responseRecienve: 'truee' });
 });
 
-router.post('/signupform', (req, res) => {
-  console.log(req.body);
-  res.send('singup test success');
-});
+router.post('/signupform', signUpHandler);
 
-router.get('/products', getProductsHandler);
 
-router.get('/products/:id', getSingleProductController);
+router.post('/loginform', loginHandler)
 
-router.get('/products?category=category', getProductsHandler);
+// router.get('/products', getProductsHandler);
 
-router.get('/cart', getCartHandler);
+// router.get('/products/:id', getSingleProductController);
 
-router.get('/categories', getCategoriesController);
+// router.get('/products?category=category', getProductsHandler);
+
+// router.get('/cart', getCartHandler);
+
+// router.get('/categories', getCategoriesController);
 
 export default router;

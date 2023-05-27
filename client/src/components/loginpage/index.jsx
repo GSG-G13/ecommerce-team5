@@ -14,11 +14,11 @@ const Login = () => {
   };
 
   const handleSubmitChange = () => {
-    setSubmit(true);
+    setSubmit(!submit);
   };
 
   useEffect(() => {
-    fetch('/login', {
+    fetch('/loginform', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -54,7 +54,7 @@ const Login = () => {
           />
           <p className="massage"> </p>
 
-          <button type="button" value={submit} onClick={handleSubmitChange} id="singupsubmit">
+          <button type="button" onClick={handleSubmitChange} id="singupsubmit">
             Continue
           </button>
         </div>
