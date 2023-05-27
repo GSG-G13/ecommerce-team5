@@ -3,29 +3,38 @@
 import { useNavigate } from 'react-router-dom';
 
 const Product = ({ product }) => {
-  const { name, id } = product;
   const navigate = useNavigate();
 
   return (
     <div
       className="product"
       onClick={() => {
-        navigate(`/product/${id}`);
+        navigate(`/product/${product.id}`);
       }}
     >
       <div className="product-image">
-        <img
-          src="https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/fc1ac524-05f5-4273-8281-6031f63851a2/air-max-pulse-mens-shoes-ShS3tL.png"
-          alt="Product"
-        />
+        <img src={product.img_url} alt="Product" />
       </div>
       <div className="product-info">
-        <h4>{name}</h4>
-        <p className="disc">Product Description</p>
-        <span>category</span>
-        <p className="price">40$</p>
+        <h4>{product.title}</h4>
+        <p className="disc">{product.discription}</p>
+        <span>{product.category}</span>
+        <p className="price">{product.price}</p>
       </div>
-      <button type="button">Add to Cart</button>
+      <button
+        type="button"
+        onClick={() => {
+          fetch(`/cart/add/${product.id}`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ quantity: 1 }),
+          }).then((response) => response.json());
+        }}
+      >
+        Add to Cart
+      </button>
     </div>
   );
 };

@@ -1,11 +1,25 @@
+import { useState, useEffect } from 'react';
+
 /* eslint-disable react/prop-types */
-const CategoryFilter = ({ selectedCategory, handleCategoryChange }) => {
-  const categories = [
-    { id: 'all', name: 'All' },
-    { id: 'shoes', name: 'Shoes' },
-    { id: 'clothing', name: 'Clothing' },
-    { id: 'accessories', name: 'Accessories' },
-  ];
+const CategoryFilter = ({ selectedCategory, setProducts }) => {
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    fetch('/categories')
+      .then((response) => response.json())
+      .then((data) => {
+        setCategories(data);
+      });
+  }, []);
+
+  const filterHandeler = (category) => {
+    fetch(`/products?category=${category}`)
+      .then((response) => response.json())
+      .then((data) => {
+        setProducts(data);
+      });
+  };
+
   return (
     <div>
       <h3 className="filter-title">Filter by Category:</h3>
@@ -18,10 +32,10 @@ const CategoryFilter = ({ selectedCategory, handleCategoryChange }) => {
               name="category"
               value={category.id}
               checked={selectedCategory === category.id}
-              onChange={handleCategoryChange}
+              onChange={() => filterHandeler(category.category)}
             />
             <label className="filter-name" htmlFor={category.id}>
-              {category.name}
+              {category.category}
             </label>
           </div>
         ))}
