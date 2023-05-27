@@ -1,21 +1,20 @@
 import pg from 'pg';
 import dotenv from 'dotenv';
+
 dotenv.config();
 
-const {Pool} = pg;
+const { Pool } = pg;
 
-let databaseUrl = `${process.env.DB_URL}`;
+const databaseUrl = `${process.env.DB_URL}`;
 
-if (!databaseUrl) throw new Error ('No DB URL!');
+if (!databaseUrl) throw new Error('No DB URL!');
 
-const pool = new Pool ({
-  user: 'ahmedecommerece',
+const pool = new Pool({
+  user: 'momen',
   host: 'localhost',
-  database: 'ecommerece',
-  password: '123456', 
+  database: 'ecommerce',
+  password: '056715',
   port: '5432',
 });
 
-export default pool; 
-
-
+export default pool;
