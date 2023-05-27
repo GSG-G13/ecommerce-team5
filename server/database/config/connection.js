@@ -10,10 +10,10 @@ const databaseUrl = `${process.env.DB_URL}`;
 if (!databaseUrl) throw new Error('No DB URL!');
 
 const pool = new Pool({
-  user: 'momen',
+  user: 'ahmedecommerece',
   host: 'localhost',
-  database: 'ecommerce',
-  password: '056715',
+  database: 'ecommerece',
+  password: '123456',
   port: '5432',
 });
 
