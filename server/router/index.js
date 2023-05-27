@@ -1,6 +1,6 @@
 import express from 'express';
 import { getProductsHandler } from '../controller/getproductshandler.js';
-import getCartHandler from '../controller/getcarthandler.js';
+import getCartController from '../controller/cart/getCart.js';
 import getSingleProductController from '../controller/getSingleProductController.js';
 import getCategoriesController from '../controller/getCategoryController.js';
 
@@ -22,7 +22,7 @@ router.get('/products/:id', getSingleProductController);
 
 router.get('/products?category=category', getProductsHandler);
 
-router.get('/cart', getCartHandler);
+router.get('/cart', getCartController);
 
 router.get('/categories', getCategoriesController);
 
