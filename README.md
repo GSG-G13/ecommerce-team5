@@ -34,3 +34,5 @@ Our E-commerce specializes in selling clothes, shoes, and everything needed for 
 - [Express.js](https://expressjs.com/)
 - [PostgreSQL](https://www.postgresql.org/)
 -------
+
+![image](https://github.com/GSG-G13/ecommerce-team5/assets/76455946/f999a516-e9ea-43f8-9a15-d5a9f2b906c5)
