@@ -24,9 +24,9 @@ Our E-commerce specializes in selling clothes, shoes, and everything needed for 
 - Delete Cart
 - Choose quantity (No of items to be order)
 
-![image](./client/images/landingPage.png)
-![image](./client/images/products.png)
-![image](./client/images/cart.png)
+![image](/client/images/landingPage.png)
+![image](/client/images/products.png)
+![image](/client/images/cart.png)
 
 ## Tech Stack 💻
 
